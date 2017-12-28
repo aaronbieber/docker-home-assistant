@@ -1,0 +1,29 @@
+office:
+  name: "Office"
+  entities:
+    - light.office_ceiling_light
+    - light.office_left
+    - light.office_right
+    - light.printer_station
+rec_room:
+  name: "Rec Room"
+  entities:
+    - light.rec_room_ceiling_lights
+    - light.rec_room_north
+    - light.rec_room_south
+    - light.rec_room_torchiere
+outside:
+  name: "Outside"
+  entities:
+    - light.front_porch_light
+    - light.back_porch_light
+    - light.christmas_lights
+first_floor:
+  name: "First Floor"
+  entities:
+    - light.kitchen_ceiling_lights
+    - light.kitchen_counter_lights
+    - light.hallway_light
+    - light.dining_room_ceiling_lights
+    - light.dining_room_south
+    - light.living_room_ceiling_lights

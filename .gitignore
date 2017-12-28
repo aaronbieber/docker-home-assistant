@@ -1,0 +1,7 @@
+mqtt-bridge
+hass/*
+!hass/automations.yaml
+!hass/configuration.yaml
+!hass/customize.yaml
+!hass/groups.yaml
+!hass/scripts.yaml

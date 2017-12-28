@@ -1,0 +1,317 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 42.2834
+  longitude: -71.3357
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  server_port: 80
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+# discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+mqtt:
+  discovery: true
+  discovery_prefix: smartthings
+  broker: 192.168.10.41
+
+light:
+  - platform: mqtt
+    command_topic: "smartthings/Printer Station/switch"
+    state_topic: "smartthings/Printer Station/switch"
+    brightness_scale: 100
+    brightness_state_topic: "smartthings/Printer Station/level"
+    brightness_command_topic: "smartthings/Printer Station/level"
+    name: "Printer Station"
+    payload_on: "on"
+    payload_off: "off"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Flood/level"
+    brightness_command_topic: "smartthings/Flood/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Flood/switch"
+    state_topic: "smartthings/Flood/switch"
+    name: "Flood"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Rec Room North/level"
+    brightness_command_topic: "smartthings/Rec Room North/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Rec Room North/switch"
+    state_topic: "smartthings/Rec Room North/switch"
+    name: "Rec Room North"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Rec Room South/level"
+    brightness_command_topic: "smartthings/Rec Room South/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Rec Room South/switch"
+    state_topic: "smartthings/Rec Room South/switch"
+    name: "Rec Room South"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Rec Room Torchiere/level"
+    brightness_command_topic: "smartthings/Rec Room Torchiere/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Rec Room Torchiere/switch"
+    state_topic: "smartthings/Rec Room Torchiere/switch"
+    name: "Rec Room Torchiere"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Rec Room Ceiling Lights/level"
+    brightness_command_topic: "smartthings/Rec Room Ceiling Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Rec Room Ceiling Lights/switch"
+    state_topic: "smartthings/Rec Room Ceiling Lights/switch"
+    name: "Rec Room Ceiling Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Back Porch Light/level"
+    brightness_command_topic: "smartthings/Back Porch Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Back Porch Light/switch"
+    state_topic: "smartthings/Back Porch Light/switch"
+    name: "Back Porch Light"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Bedroom Ceiling Lights/level"
+    brightness_command_topic: "smartthings/Bedroom Ceiling Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Bedroom Ceiling Lights/switch"
+    state_topic: "smartthings/Bedroom Ceiling Lights/switch"
+    name: "Bedroom Ceiling Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Bedroom Lamp/level"
+    brightness_command_topic: "smartthings/Bedroom Lamp/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Bedroom Lamp/switch"
+    state_topic: "smartthings/Bedroom Lamp/switch"
+    name: "Bedroom Lamp"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Christmas Lights/level"
+    brightness_command_topic: "smartthings/Christmas Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Christmas Lights/switch"
+    state_topic: "smartthings/Christmas Lights/switch"
+    name: "Christmas Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Dining Room Ceiling Light/level"
+    brightness_command_topic: "smartthings/Dining Room Ceiling Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Dining Room Ceiling Light/switch"
+    state_topic: "smartthings/Dining Room Ceiling Light/switch"
+    name: "Dining Room Ceiling Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Dining Room South/level"
+    brightness_command_topic: "smartthings/Dining Room South/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Dining Room South/switch"
+    state_topic: "smartthings/Dining Room South/switch"
+    name: "Dining Room South"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Front Porch Light/level"
+    brightness_command_topic: "smartthings/Front Porch Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Front Porch Light/switch"
+    state_topic: "smartthings/Front Porch Light/switch"
+    name: "Front Porch Light"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Hallway Light/level"
+    brightness_command_topic: "smartthings/Hallway Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Hallway Light/switch"
+    state_topic: "smartthings/Hallway Light/switch"
+    name: "Hallway Light"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Kitchen Ceiling Lights/level"
+    brightness_command_topic: "smartthings/Kitchen Ceiling Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Kitchen Ceiling Lights/switch"
+    state_topic: "smartthings/Kitchen Ceiling Lights/switch"
+    name: "Kitchen Ceiling Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Kitchen Counter Lights/level"
+    brightness_command_topic: "smartthings/Kitchen Counter Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Kitchen Counter Lights/switch"
+    state_topic: "smartthings/Kitchen Counter Lights/switch"
+    name: "Kitchen Counter Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Landing Lights/level"
+    brightness_command_topic: "smartthings/Landing Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Landing Lights/switch"
+    state_topic: "smartthings/Landing Lights/switch"
+    name: "Landing Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Laundry Room Lights/level"
+    brightness_command_topic: "smartthings/Laundry Room Lights/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Laundry Room Lights/switch"
+    state_topic: "smartthings/Laundry Room Lights/switch"
+    name: "Laundry Room Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Living Room Ceiling Light/level"
+    brightness_command_topic: "smartthings/Living Room Ceiling Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Living Room Ceiling Light/switch"
+    state_topic: "smartthings/Living Room Ceiling Light/switch"
+    name: "Living Room Ceiling Lights"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Office Left/level"
+    brightness_command_topic: "smartthings/Office Left/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Office Left/switch"
+    state_topic: "smartthings/Office Left/switch"
+    name: "Office Left"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Office Right/level"
+    brightness_command_topic: "smartthings/Office Right/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Office Right/switch"
+    state_topic: "smartthings/Office Right/switch"
+    name: "Office Right"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Office Ceiling Light/level"
+    brightness_command_topic: "smartthings/Office Ceiling Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Office Ceiling Light/switch"
+    state_topic: "smartthings/Office Ceiling Light/switch"
+    name: "Office Ceiling Light"
+  - platform: mqtt
+    brightness_state_topic: "smartthings/Walkout Light/level"
+    brightness_command_topic: "smartthings/Walkout Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Walkout Light/switch"
+    state_topic: "smartthings/Walkout Light/switch"
+    name: "Walkout Light"
+
+
+#  - platform: mqtt
+#    brightness_state_topic: "smartthings/Porch Camera/level"
+#    brightness_command_topic: "smartthings/Porch Camera/level"
+#    brightness_scale: 100
+#    payload_on: "on"
+#    payload_off: "off"
+#    command_topic: "smartthings/Porch Camera/switch"
+#    state_topic: "smartthings/Porch Camera/switch"
+#    name: "Porch Camera"
+#  - platform: mqtt
+#    brightness_state_topic: "smartthings/Rec Room Camera/level"
+#    brightness_command_topic: "smartthings/Rec Room Camera/level"
+#    brightness_scale: 100
+#    payload_on: "on"
+#    payload_off: "off"
+#    command_topic: "smartthings/Rec Room Camera/switch"
+#    state_topic: "smartthings/Rec Room Camera/switch"
+#    name: "Rec Room Camera"
+
+# Template
+#  - platform: mqtt
+#    brightness_state_topic: "smartthings//level"
+#    brightness_command_topic: "smartthings//level"
+#    brightness_scale: 100
+#    payload_on: "on"
+#    payload_off: "off"
+#    command_topic: "smartthings//switch"
+#    state_topic: "smartthings//switch"
+#    name: ""
