@@ -5,3 +5,4 @@ hass/*
 !hass/customize.yaml
 !hass/groups.yaml
 !hass/scripts.yaml
+!hass/scenes.yaml

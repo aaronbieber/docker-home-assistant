@@ -1,0 +1,14 @@
+  - name: Sleep
+    entities:
+      group.all_lights: off
+  - name: Work
+    entities:
+      light.office_left:
+        state: on
+        brightness: 255
+      light.office_right:
+        state: on
+        brightness: 255
+      light.printer_station:
+        state: on
+        brightness: 255
