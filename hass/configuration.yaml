@@ -23,6 +23,7 @@ frontend:
 config:
 
 http:
+  server_host: 192.168.10.42
   server_port: 80
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password

@@ -10,10 +10,9 @@ services:
       - "192.168.10.41:8080:8080"
   hass:
     container_name: home-assistant
+    network_mode: host
     image: homeassistant/home-assistant
     volumes:
       - ./hass:/config
       - /etc/localtime:/etc/localtime:ro
     restart: always
-    ports:
-      - "192.168.10.42:80:80"
