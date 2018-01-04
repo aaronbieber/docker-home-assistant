@@ -81,6 +81,10 @@ mqtt:
   discovery_prefix: smartthings
   broker: 192.168.10.41
 
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
 light:
   - platform: mqtt
     command_topic: "smartthings/Printer Station/switch"
