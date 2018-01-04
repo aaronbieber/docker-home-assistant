@@ -87,50 +87,11 @@ nest:
 
 light:
   - platform: mqtt
-    command_topic: "smartthings/Printer Station/switch"
-    state_topic: "smartthings/Printer Station/switch"
-    brightness_scale: 100
-    brightness_state_topic: "smartthings/Printer Station/level"
-    brightness_command_topic: "smartthings/Printer Station/level"
-    name: "Printer Station"
+    command_topic: "cmd/xmastree/power"
+    state_topic: "stat/xmastree/POWER"
+    name: "Christmas Tree"
     payload_on: "on"
     payload_off: "off"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Flood/level"
-    brightness_command_topic: "smartthings/Flood/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Flood/switch"
-    state_topic: "smartthings/Flood/switch"
-    name: "Flood"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Rec Room North/level"
-    brightness_command_topic: "smartthings/Rec Room North/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Rec Room North/switch"
-    state_topic: "smartthings/Rec Room North/switch"
-    name: "Rec Room North"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Rec Room South/level"
-    brightness_command_topic: "smartthings/Rec Room South/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Rec Room South/switch"
-    state_topic: "smartthings/Rec Room South/switch"
-    name: "Rec Room South"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Rec Room Torchiere/level"
-    brightness_command_topic: "smartthings/Rec Room Torchiere/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Rec Room Torchiere/switch"
-    state_topic: "smartthings/Rec Room Torchiere/switch"
-    name: "Rec Room Torchiere"
   - platform: mqtt
     brightness_state_topic: "smartthings/Rec Room Ceiling Lights/level"
     brightness_command_topic: "smartthings/Rec Room Ceiling Lights/level"
@@ -159,15 +120,6 @@ light:
     state_topic: "smartthings/Bedroom Ceiling Lights/switch"
     name: "Bedroom Ceiling Lights"
   - platform: mqtt
-    brightness_state_topic: "smartthings/Bedroom Lamp/level"
-    brightness_command_topic: "smartthings/Bedroom Lamp/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Bedroom Lamp/switch"
-    state_topic: "smartthings/Bedroom Lamp/switch"
-    name: "Bedroom Lamp"
-  - platform: mqtt
     brightness_state_topic: "smartthings/Christmas Lights/level"
     brightness_command_topic: "smartthings/Christmas Lights/level"
     brightness_scale: 100
@@ -185,15 +137,6 @@ light:
     command_topic: "smartthings/Dining Room Ceiling Light/switch"
     state_topic: "smartthings/Dining Room Ceiling Light/switch"
     name: "Dining Room Ceiling Lights"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Dining Room South/level"
-    brightness_command_topic: "smartthings/Dining Room South/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Dining Room South/switch"
-    state_topic: "smartthings/Dining Room South/switch"
-    name: "Dining Room South"
   - platform: mqtt
     brightness_state_topic: "smartthings/Front Porch Light/level"
     brightness_command_topic: "smartthings/Front Porch Light/level"
@@ -258,24 +201,6 @@ light:
     state_topic: "smartthings/Living Room Ceiling Light/switch"
     name: "Living Room Ceiling Lights"
   - platform: mqtt
-    brightness_state_topic: "smartthings/Office Left/level"
-    brightness_command_topic: "smartthings/Office Left/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Office Left/switch"
-    state_topic: "smartthings/Office Left/switch"
-    name: "Office Left"
-  - platform: mqtt
-    brightness_state_topic: "smartthings/Office Right/level"
-    brightness_command_topic: "smartthings/Office Right/level"
-    brightness_scale: 100
-    payload_on: "on"
-    payload_off: "off"
-    command_topic: "smartthings/Office Right/switch"
-    state_topic: "smartthings/Office Right/switch"
-    name: "Office Right"
-  - platform: mqtt
     brightness_state_topic: "smartthings/Office Ceiling Light/level"
     brightness_command_topic: "smartthings/Office Ceiling Light/level"
     brightness_scale: 100
@@ -293,7 +218,6 @@ light:
     command_topic: "smartthings/Walkout Light/switch"
     state_topic: "smartthings/Walkout Light/switch"
     name: "Walkout Light"
-
 
 #  - platform: mqtt
 #    brightness_state_topic: "smartthings/Porch Camera/level"
