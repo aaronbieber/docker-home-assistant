@@ -106,6 +106,26 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
+switch:
+  - name: "Rec Room Camera"
+    platform: mqtt
+    command_topic: "smartthings/Rec Room Camera/switch"
+    state_topic: "smartthings/Rec Room Camera/switch"
+    payload_on: "on"
+    payload_off: "off"
+  - name: "First Floor Camera"
+    platform: mqtt
+    command_topic: "smartthings/First Floor Camera/switch"
+    state_topic: "smartthings/First Floor Camera/switch"
+    payload_on: "on"
+    payload_off: "off"
+  - name: "Porch Camera"
+    platform: mqtt
+    command_topic: "smartthings/Porch Camera/switch"
+    state_topic: "smartthings/Porch Camera/switch"
+    payload_on: "on"
+    payload_off: "off"
+
 light:
   - platform: mqtt
     command_topic: "cmd/xmastree/power"
