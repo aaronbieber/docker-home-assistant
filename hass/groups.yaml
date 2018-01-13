@@ -1,26 +1,27 @@
-office:
-  name: "Office"
+office_lights:
+  name: Lights
   entities:
     - light.office_ceiling_light
     - light.office_left
     - light.office_right
     - light.printer_station
 rec_room:
-  name: "Rec Room"
+  name: Rec Room
   entities:
     - light.rec_room_ceiling_lights
     - light.rec_room_north
     - light.rec_room_south
     - light.rec_room_torchiere
-outside:
-  name: "Outside"
+    - light.flood
+outside_lights:
+  name: Lights
   entities:
     - light.front_porch_light
     - light.back_porch_light
     - light.walkout_light
     - light.christmas_lights
-first_floor:
-  name: "First Floor"
+first_floor_lights:
+  name: Lights
   entities:
     - light.kitchen_ceiling_lights
     - light.kitchen_counter_lights
@@ -28,3 +29,82 @@ first_floor:
     - light.dining_room_ceiling_lights
     - light.dining_room_south
     - light.living_room_ceiling_lights
+    - light.christmas_tree
+    - light.landing_lights
+everyone:
+  name: Everyone
+  entities:
+    - device_tracker.aaron
+    - device_tracker.veronica
+cameras_group:
+  name: Cameras
+  entities:
+    - switch.first_floor_camera
+    - switch.porch_camera
+    - switch.rec_room_camera
+scenes_group:
+  name: Scenes
+  entities:
+    - scene.morning
+    - scene.roxanne
+    - scene.sleep
+    - scene.watch_tv
+    - scene.work
+
+default_view:
+  view: yes
+  icon: mdi:home
+  name: Home
+  entities:
+    - sun.sun
+    - sensor.living_room_thermostat_humidity
+    - sensor.living_room_thermostat_hvac_state
+    - sensor.living_room_thermostat_operation_mode
+    - sensor.living_room_thermostat_target
+    - sensor.living_room_thermostat_temperature
+    - climate.living_room
+    - group.scenes_group
+    - group.everyone
+first_floor_view:
+  view: yes
+  name: First Floor
+  entities:
+    - group.first_floor_lights
+    - media_player.living_room
+    - media_player.living_room_home
+    - media_player.kitchen
+    - media_player.kitchen_speaker
+upstairs_view:
+  view: yes
+  name: Upstairs
+  entities:
+    - light.bedroom_ceiling_lights
+    - light.bedroom_lamp
+    - light.landing_lights
+    - media_player.bathroom
+    - media_player.bedroom
+    - media_player.bedroom_speakers
+    - media_player.bedroom_home
+downstairs_view:
+  view: yes
+  name: Downstairs
+  entities:
+    - light.laundry_room_lights
+    - group.rec_room
+    - media_player.rec_room
+    - media_player.rec_room_speaker
+office_view:
+  view: yes
+  name: Office
+  entities:
+    - group.office_lights
+outside_view:
+  view: yes
+  name: Outside
+  entities:
+    - group.outside_lights
+cameras_view:
+  view: yes
+  icon: mdi:camera
+  entities:
+    - group.cameras_group
