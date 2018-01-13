@@ -1,14 +1,62 @@
-  - name: Sleep
-    entities:
-      group.all_lights: off
-  - name: Work
-    entities:
-      light.office_left:
-        state: on
-        brightness: 255
-      light.office_right:
-        state: on
-        brightness: 255
-      light.printer_station:
-        state: on
-        brightness: 255
+- name: Sleep
+  entities:
+    group.all_lights: off
+- name: Work
+  entities:
+    light.office_left:
+      state: on
+      brightness: 255
+    light.office_right:
+      state: on
+      brightness: 255
+    light.printer_station:
+      state: on
+      brightness: 255
+- name: Roxanne
+  entities:
+    light.bedroom_lamp:
+      state: on
+      brightness: 1
+      xy_color: [0.675, 0.322]
+- name: Watch TV
+  entities:
+    light.rec_room_ceiling_lights:
+      state: off
+    light.rec_room_north:
+      state: on
+      brightness: 43.0
+      color_temp: 439
+    light.rec_room_south:
+      state: on
+      brightness: 43.0
+      color_temp: 439
+    light.rec_room_torchiere:
+      state: on
+      brightness: 43.0
+      color_temp: 439
+- name: Morning
+  entities:
+    light.dining_room_ceiling_lights:
+      state: on
+      brightness: 50.0
+    light.landing_lights:
+      state: on
+      brightness: 50.0
+    light.kitchen_ceiling_lights:
+      state: on
+      brightness: 50.0
+    light.living_room_ceiling_lights:
+      state: on
+      brightness: 50.0
+    light.hallway_light:
+      state: on
+      brightness: 50.0
+    light.office_left:
+      state: on
+      brightness: 255
+    light.office_right:
+      state: on
+      brightness: 255
+    light.printer_station:
+      state: on
+      brightness: 255
