@@ -1,1 +1,27 @@
-[]
+- alias: Someone Arrived
+  trigger:
+    platform: state
+    entity_id: group.everyone
+    from: not_home
+    to: home
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.morning
+    - service: notify.sms
+      data:
+        message: "Someone is home!"
+        target:
+          - "+18608055785"
+  condition: []
+
+- alias: Everyone Leaves
+  trigger:
+    platform: state
+    entity_id: group.everyone
+    from: home
+    to: not_home
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.sleep
