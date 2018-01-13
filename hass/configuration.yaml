@@ -41,9 +41,13 @@ updater:
 
 # Discover some devices automatically
 discovery:
-  ignore:
-    - google_cast
-    - sonos
+#  ignore:
+#    - google_cast
+#    - sonos
+
+hue:
+  bridges:
+    - host: 192.168.10.175
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -55,7 +59,7 @@ history:
 logbook:
 
 # Enables a map showing the location of tracked devices
-map:
+# map:
 
 # Track the sun
 sun:
