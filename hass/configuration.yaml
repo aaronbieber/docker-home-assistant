@@ -72,6 +72,14 @@ sensor:
 tts:
   - platform: google
 
+device_tracker:
+  - platform: unifi_direct
+    host: 192.168.10.70
+    username: !secret unifi_username
+    password: !secret unifi_password
+    consider_home: 180
+    interval_seconds: 60
+
 # Cloud
 cloud:
 
@@ -84,6 +92,15 @@ mqtt:
   discovery: true
   discovery_prefix: smartthings
   broker: 192.168.10.41
+
+twilio:
+  account_sid: !secret twilio_account_sid
+  auth_token: !secret twilio_auth_token
+
+notify:
+  - name: sms
+    platform: twilio_sms
+    from_number: "+18607852006"
 
 nest:
   client_id: !secret nest_client_id
