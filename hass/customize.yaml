@@ -34,3 +34,54 @@ light.bedroom_2:
   hidden: true
 light.rec_room:
   hidden: true
+light.living_room:
+  hidden: true
+light.hue_white_light_1:
+  hidden: true
+device_tracker.usm083799:
+  hidden: true
+device_tracker.chromecastaudio:
+  hidden: true
+device_tracker.e8617e339fe5:
+  hidden: true
+device_tracker.googlehome:
+  hidden: true
+device_tracker.xmastree0008:
+  hidden: true
+device_tracker.rec_room:
+  hidden: true
+device_tracker.404e3622cba2:
+  hidden: true
+device_tracker.b827ebf119c9:
+  hidden: true
+device_tracker.googlehome_2:
+  hidden: true
+device_tracker.74da38686252:
+  hidden: true
+device_tracker.alt00461:
+  hidden: true
+device_tracker.hydra:
+  hidden: true
+device_tracker.09aa01ac09160jv6:
+  hidden: true
+device_tracker.chromecastultra:
+  hidden: true
+device_tracker.chromecast:
+  hidden: true
+device_tracker.googlehome_3:
+  hidden: true
+device_tracker.googlehome_4:
+  hidden: true
+device_tracker.a002dc627046:
+  hidden: true
+device_tracker.localhost:
+  hidden: true
+switch.porch_camera:
+  icon: mdi:camera
+switch.rec_room_camera:
+  icon: mdi:camera
+switch.first_floor_camera:
+  icon: mdi:camera
+group.all_automations: {}
+light.dining_room:
+  hidden: true
