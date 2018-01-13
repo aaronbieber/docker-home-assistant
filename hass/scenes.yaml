@@ -1,6 +1,10 @@
 - name: Sleep
   entities:
+    switch.rec_room_camera: on
+    switch.porch_camera: on
+    switch.first_floor_camera: on
     group.all_lights: off
+
 - name: Work
   entities:
     light.office_left:
@@ -12,12 +16,14 @@
     light.printer_station:
       state: on
       brightness: 255
+
 - name: Roxanne
   entities:
     light.bedroom_lamp:
       state: on
       brightness: 1
       xy_color: [0.675, 0.322]
+
 - name: Watch TV
   entities:
     light.rec_room_ceiling_lights:
@@ -34,8 +40,30 @@
       state: on
       brightness: 43.0
       color_temp: 439
+
+- name: Early Morning
+  entities:
+    switch.rec_room_camera: off
+    switch.porch_camera: off
+    switch.first_floor_camera: off
+    light.office_left:
+      state: on
+      brightness: 255
+    light.office_right:
+      state: on
+      brightness: 255
+    light.kitchen_counter_lights:
+      state: on
+      brightness: 180
+    light.living_room_ceiling_lights:
+      state: on
+      brightness: 40
+
 - name: Morning
   entities:
+    switch.rec_room_camera: off
+    switch.porch_camera: off
+    switch.first_floor_camera: off
     light.dining_room_ceiling_lights:
       state: on
       brightness: 50.0
@@ -60,3 +88,6 @@
     light.printer_station:
       state: on
       brightness: 255
+    light.bedroom_ceiling_lights:
+      state: on
+      brightness: 1

@@ -25,3 +25,29 @@
     - service: scene.turn_on
       data:
         entity_id: scene.sleep
+
+- alias: Wake Up
+  trigger:
+    platform: time
+    at: "05:00:00"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.early_morning
+
+- alias: Up and Atom
+  trigger:
+    platform: time
+    at: "06:00:00"
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.morning
