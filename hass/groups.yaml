@@ -5,7 +5,7 @@ office_lights:
     - light.office_left
     - light.office_right
     - light.printer_station
-rec_room:
+rec_room_lights:
   name: Rec Room
   entities:
     - light.rec_room_ceiling_lights
@@ -36,21 +36,37 @@ everyone:
   entities:
     - device_tracker.aaron
     - device_tracker.veronica
-cameras_group:
+cameras:
   name: Cameras
   entities:
     - switch.first_floor_camera
     - switch.porch_camera
     - switch.rec_room_camera
-scenes_group:
+scenes:
   name: Scenes
   entities:
+    - scene.early_morning
     - scene.morning
-    - scene.roxanne
-    - scene.sleep
-    - scene.watch_tv
     - scene.work
-
+    - scene.watch_tv
+    - scene.bedtime_story
+    - scene.sleep
+    - scene.roxanne
+bedroom_temp:
+  name: Temperature
+  entities:
+    - sensor.master_bedroom_temp
+office_temp:
+  name: Temperature
+  entities:
+    - sensor.office_temp
+rec_room_temp:
+  name: Temperature
+  entities:
+    - sensor.rec_room_temp
+    - input_boolean.rec_room_heat
+    - switch.rec_room_heat
+    
 default_view:
   view: yes
   icon: mdi:home
@@ -63,8 +79,10 @@ default_view:
     - sensor.living_room_thermostat_target
     - sensor.living_room_thermostat_temperature
     - climate.living_room
-    - group.scenes_group
+    - group.scenes
     - group.everyone
+    - group.all_automations
+    - camera.house_temp
 first_floor_view:
   view: yes
   name: First Floor
@@ -81,8 +99,9 @@ upstairs_view:
     - light.bedroom_ceiling_lights
     - light.bedroom_lamp
     - light.landing_lights
-    - media_player.bathroom
-    - media_player.bedroom
+    - group.bedroom_temp
+    # - media_player.bathroom
+    # - media_player.bedroom
     - media_player.bedroom_speakers
     - media_player.bedroom_home
 downstairs_view:
@@ -90,14 +109,16 @@ downstairs_view:
   name: Downstairs
   entities:
     - light.laundry_room_lights
-    - group.rec_room
+    - group.rec_room_lights
     - media_player.rec_room
     - media_player.rec_room_speaker
+    - group.rec_room_temp
 office_view:
   view: yes
   name: Office
   entities:
     - group.office_lights
+    - group.office_temp
 outside_view:
   view: yes
   name: Outside
@@ -107,4 +128,4 @@ cameras_view:
   view: yes
   icon: mdi:camera
   entities:
-    - group.cameras_group
+    - group.cameras

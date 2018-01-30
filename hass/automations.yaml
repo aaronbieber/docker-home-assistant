@@ -8,11 +8,6 @@
     - service: scene.turn_on
       data:
         entity_id: scene.morning
-    - service: notify.sms
-      data:
-        message: "Someone is home!"
-        target:
-          - "+18608055785"
   condition: []
 
 - alias: Everyone Leaves
@@ -25,6 +20,91 @@
     - service: scene.turn_on
       data:
         entity_id: scene.sleep
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temperature: 62
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.rec_room_heat
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Everyone has left."
+
+- alias: Aaron Arrived
+  trigger:
+    platform: state
+    entity_id: device_tracker.aaron
+    to: home
+  action:
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Welcome home!"
+
+- alias: Veronica Arrived
+  trigger:
+    platform: state
+    entity_id: device_tracker.veronica
+    to: home
+  action:
+    - service: notify.sms
+      data:
+        message: "Welcome home!"
+        target:
+          - "+18608611443"
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Veronica is home."
+
+- alias: Aaron Left
+  trigger:
+    platform: state
+    entity_id: device_tracker.aaron
+    to: not_home
+  action:
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Goodbye!"
+
+- alias: Veronica Left
+  trigger:
+    platform: state
+    entity_id: device_tracker.veronica
+    to: not_home
+  action:
+    - service: notify.sms
+      data:
+        message: "Goodbye!"
+        target:
+          - "+18608611443"
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Veronica has left."
+          
+- alias: Cool Off
+  trigger:
+    platform: time
+    at: "22:00:00"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temperature: 62
+          
+- alias: Warm Up
+  trigger:
+    platform: time
+    at: "04:00:00"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temperature: 68
 
 - alias: Wake Up
   trigger:
@@ -42,12 +122,71 @@
   condition:
     condition: time
     weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   action:
     - service: scene.turn_on
       data:
         entity_id: scene.morning
+
+- alias: Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:15:00'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.perimeter_on
+    - service: notify.push
+      data:
+        title: "Gamma Quadrant"
+        message: "Sunset operations engaged."
+
+- alias: Sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.perimeter_off
+
+- alias: Rec Room Heat On
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.rec_room_temp
+    below: 68
+    for:
+      minutes: 1
+  condition:
+    condition: state
+    entity_id: input_boolean.rec_room_heat
+    state: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.rec_room_heat
+
+- alias: Rec Room Heat Off
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.rec_room_temp
+    above: 70
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.rec_room_heat
+
+- alias: Rec Room Heat Disable
+  trigger:
+    platform: state
+    entity_id: input_boolean.rec_room_heat
+    to: 'off'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.rec_room_heat

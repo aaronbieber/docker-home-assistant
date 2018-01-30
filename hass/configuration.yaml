@@ -41,9 +41,9 @@ updater:
 
 # Discover some devices automatically
 discovery:
-#  ignore:
+  ignore:
+    - sonos
 #    - google_cast
-#    - sonos
 
 hue:
   bridges:
@@ -67,6 +67,35 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+  - platform: openweathermap
+    name: Weather
+    api_key: !secret openweathermap_api_key
+    forecast: 1
+    monitored_conditions:
+      - weather
+      - temperature
+      - wind_speed
+      - humidity
+      - clouds
+      - rain
+      - snow
+  - platform: template
+    sensors:
+      weather_temp:
+        friendly_name: Weather
+        value_template: "{{ states('sensor.weather_temperature') | float }}"
+  - platform: mqtt
+    state_topic: "sensors/temp/bedroom"
+    name: "Master Bedroom Temp"
+    unit_of_measurement: "℉"
+  - platform: mqtt
+    state_topic: "sensors/temp/office"
+    name: "Office Temp"
+    unit_of_measurement: "℉"
+  - platform: mqtt
+    state_topic: "sensors/temp/recroom"
+    name: "Rec Room Temp"
+    unit_of_measurement: "℉"
 
 # Text to speech
 tts:
@@ -101,10 +130,27 @@ notify:
   - name: sms
     platform: twilio_sms
     from_number: "+18607852006"
+  - name: push
+    platform: simplepush
+    device_key: !secret simplepush_key
+    password: !secret simplepush_password
+    salt: !secret simplepush_salt
+    event: "hass"
+
+camera:
+  - platform: generic
+    name: House Temp
+    still_image_url: "http://stats.gquad.space/render?majorGridLineColor=%23555555&from=-1hours&until=now&width=300&height=300&fontName=Courier&target=alias(movingAverage(stats.gauges.sensors.temp.office%2C12)%2C%22Office%22)&target=alias(movingAverage(stats.gauges.sensors.temp.recroom%2C12)%2C%22Rec%20Room%22)&target=alias(movingAverage(stats.gauges.sensors.temp.bedroom%2C12)%2C%22Bedroom%22)&fgcolor=000000&bgcolor=FFFFFF&fontSize=12&yMin=60&yMax=&title=House%20Temperatures&xFormat=%25I%3A%25M%20%25p&tz=America%2FNew_York&vtitle=Degrees%20Fahrenheit&minorGridLineColor=%23CCCCCC&_uniq=0.3979732907460245"
 
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
+
+input_boolean:
+  rec_room_heat:
+    name: Enable Rec Room Heating
+    initial: off
+    icon: mdi:power
 
 switch:
   - name: "Rec Room Camera"
@@ -125,14 +171,15 @@ switch:
     state_topic: "smartthings/Porch Camera/switch"
     payload_on: "on"
     payload_off: "off"
-
-light:
   - platform: mqtt
-    command_topic: "cmd/xmastree/power"
-    state_topic: "stat/xmastree/POWER"
-    name: "Christmas Tree"
+    command_topic: "smartthings/Rec Room Heater/switch"
+    state_topic: "smartthings/Rec Room Heater/switch"
+    name: "Rec Room Heat"
     payload_on: "on"
     payload_off: "off"
+    icon: mdi:radiator
+
+light:
   - platform: mqtt
     brightness_state_topic: "smartthings/Rec Room Ceiling Lights/level"
     brightness_command_topic: "smartthings/Rec Room Ceiling Lights/level"

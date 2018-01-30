@@ -82,6 +82,15 @@ switch.rec_room_camera:
   icon: mdi:camera
 switch.first_floor_camera:
   icon: mdi:camera
-group.all_automations: {}
+group.all_automations:
+  hidden: false
 light.dining_room:
   hidden: true
+sensor.office_temp:
+  icon: mdi:thermometer
+sensor.master_bedroom_temp:
+  icon: mdi:thermometer
+sensor.rec_room_temp:
+  icon: mdi:thermometer
+switch.rec_room_heat:
+  icon: mdi:radiator
