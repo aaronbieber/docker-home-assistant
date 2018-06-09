@@ -85,7 +85,7 @@
       data:
         title: "Gamma Quadrant"
         message: "Veronica has left."
-          
+
 - alias: Cool Off
   trigger:
     platform: time
@@ -95,7 +95,7 @@
       data:
         entity_id: climate.living_room
         temperature: 62
-          
+
 - alias: Warm Up
   trigger:
     platform: time
@@ -108,8 +108,9 @@
 
 - alias: Wake Up
   trigger:
-    platform: time
-    at: "05:00:00"
+    platform: sun
+    event: sunrise
+    offset: "-00:30:00"
   action:
     - service: scene.turn_on
       data:
@@ -117,8 +118,8 @@
 
 - alias: Up and Atom
   trigger:
-    platform: time
-    at: "06:00:00"
+    platform: sun
+    event: sunrise
   condition:
     condition: time
     weekday:
@@ -176,6 +177,10 @@
     platform: numeric_state
     entity_id: sensor.rec_room_temp
     above: 70
+  condition:
+    condition: state
+    entity_id: input_boolean.rec_room_heat
+    state: 'on'
   action:
     - service: switch.turn_off
       data:
@@ -190,3 +195,23 @@
     - service: switch.turn_off
       data:
         entity_id: switch.rec_room_heat
+
+# - alias: Turn on office light on motion
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor
+#     to: 'on'
+#   action:
+#     service: homeassistant.turn_on
+#     entity_id: light.office_right
+
+# - alias: Turn off office light on clear
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_sensor
+#     to: 'off'
+#     for:
+#       minutes: 10
+#   action:
+#     service: homeassistant.turn_off
+#     entity_id: light.office_right
