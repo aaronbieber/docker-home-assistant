@@ -57,9 +57,9 @@
     light.office_right:
       state: on
       brightness: 255
-    light.kitchen_counter_lights:
+    light.kitchen_ceiling_lights:
       state: on
-      brightness: 180
+      brightness: 3
     light.living_room_ceiling_lights:
       state: on
       brightness: 40
@@ -71,13 +71,13 @@
     switch.first_floor_camera: off
     light.dining_room_ceiling_lights:
       state: on
-      brightness: 50
+      brightness: 75
     light.landing_lights:
       state: on
       brightness: 50
     light.kitchen_ceiling_lights:
       state: on
-      brightness: 50
+      brightness: 75
     light.living_room_ceiling_lights:
       state: on
       brightness: 50
@@ -96,23 +96,23 @@
     light.front_porch_light:
       state: on
       brightness: 255
-    light.bedroom_ceiling_lights:
+    light.bedroom_lamp:
       state: on
-      brightness: 3
+      brightness: 15
 
 - name: Perimeter On
   entities:
     group.outside_lights:
       state: on
       brightness: 255
-      
+
 - name: Perimeter Off
   entities:
     group.outside_lights: off
 
 - name: Bedtime Story
   entities:
-    light.bedroom_lamp:
+    light.nathans_light:
       state: on
-      brightness: 130.0
+      brightness: 75
       color_temp: 328
