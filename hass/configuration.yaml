@@ -213,6 +213,15 @@ light:
     state_topic: "smartthings/Bedroom Ceiling Lights/switch"
     name: "Bedroom Ceiling Lights"
   - platform: mqtt
+    brightness_state_topic: "smartthings/Nathan's Light/level"
+    brightness_command_topic: "smartthings/Nathan's Light/level"
+    brightness_scale: 100
+    payload_on: "on"
+    payload_off: "off"
+    command_topic: "smartthings/Nathan's Light/switch"
+    state_topic: "smartthings/Nathan's Light/switch"
+    name: "Nathan's Light"
+  - platform: mqtt
     brightness_state_topic: "smartthings/Christmas Lights/level"
     brightness_command_topic: "smartthings/Christmas Lights/level"
     brightness_scale: 100
@@ -311,25 +320,6 @@ light:
     command_topic: "smartthings/Walkout Light/switch"
     state_topic: "smartthings/Walkout Light/switch"
     name: "Walkout Light"
-
-#  - platform: mqtt
-#    brightness_state_topic: "smartthings/Porch Camera/level"
-#    brightness_command_topic: "smartthings/Porch Camera/level"
-#    brightness_scale: 100
-#    payload_on: "on"
-#    payload_off: "off"
-#    command_topic: "smartthings/Porch Camera/switch"
-#    state_topic: "smartthings/Porch Camera/switch"
-#    name: "Porch Camera"
-#  - platform: mqtt
-#    brightness_state_topic: "smartthings/Rec Room Camera/level"
-#    brightness_command_topic: "smartthings/Rec Room Camera/level"
-#    brightness_scale: 100
-#    payload_on: "on"
-#    payload_off: "off"
-#    command_topic: "smartthings/Rec Room Camera/switch"
-#    state_topic: "smartthings/Rec Room Camera/switch"
-#    name: "Rec Room Camera"
 
 # Template
 #  - platform: mqtt
