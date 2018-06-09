@@ -97,6 +97,14 @@ sensor:
     name: "Rec Room Temp"
     unit_of_measurement: "℉"
 
+binary_sensor:
+    - platform: mqtt
+      name: "Motion Sensor"
+      state_topic: "smartthings/Motion Sensor/motion"
+      payload_on: "active"
+      payload_off: "inactive"
+      device_class: "motion"
+
 # Text to speech
 tts:
   - platform: google
@@ -131,11 +139,8 @@ notify:
     platform: twilio_sms
     from_number: "+18607852006"
   - name: push
-    platform: simplepush
-    device_key: !secret simplepush_key
-    password: !secret simplepush_password
-    salt: !secret simplepush_salt
-    event: "hass"
+    platform: pushbullet
+    api_key: !secret pushbullet_key
 
 camera:
   - platform: generic
