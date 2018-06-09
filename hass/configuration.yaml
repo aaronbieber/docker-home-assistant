@@ -64,6 +64,10 @@ logbook:
 # Track the sun
 sun:
 
+# Z-Wave controller
+zwave:
+  usb_path: /zwaveusb
+
 # Weather prediction
 sensor:
   - platform: yr
