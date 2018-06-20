@@ -89,12 +89,12 @@
 - alias: Cool Off
   trigger:
     platform: time
-    at: "22:00:00"
+    at: "21:00:00"
   action:
     - service: climate.set_temperature
       data:
         entity_id: climate.living_room
-        temperature: 62
+        temperature: 66
 
 - alias: Warm Up
   trigger:
@@ -196,22 +196,22 @@
       data:
         entity_id: switch.rec_room_heat
 
-# - alias: Turn on office light on motion
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.motion_sensor
-#     to: 'on'
-#   action:
-#     service: homeassistant.turn_on
-#     entity_id: light.office_right
+- alias: Turn on utility lights on motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.utility_room_motion
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.utility_room_lights
 
-# - alias: Turn off office light on clear
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.motion_sensor
-#     to: 'off'
-#     for:
-#       minutes: 10
-#   action:
-#     service: homeassistant.turn_off
-#     entity_id: light.office_right
+- alias: Turn off utility lights on clear
+  trigger:
+    platform: state
+    entity_id: binary_sensor.utility_room_motion
+    to: 'off'
+    for:
+      minutes: 6
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.utility_room_lights

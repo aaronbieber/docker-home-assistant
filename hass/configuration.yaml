@@ -68,6 +68,13 @@ sun:
 zwave:
   usb_path: /zwaveusb
 
+binary_sensor:
+  - platform: mqtt
+    name: Utility Room Motion
+    state_topic: "smartthings/Utility Room Motion/motion"
+    payload_on: active
+    payload_off: inactive
+
 # Weather prediction
 sensor:
   - platform: yr
@@ -100,14 +107,6 @@ sensor:
     state_topic: "sensors/temp/recroom"
     name: "Rec Room Temp"
     unit_of_measurement: "℉"
-
-binary_sensor:
-    - platform: mqtt
-      name: "Motion Sensor"
-      state_topic: "smartthings/Motion Sensor/motion"
-      payload_on: "active"
-      payload_off: "inactive"
-      device_class: "motion"
 
 # Text to speech
 tts:
@@ -187,6 +186,12 @@ switch:
     payload_on: "on"
     payload_off: "off"
     icon: mdi:radiator
+  - platform: mqtt
+    command_topic: "smartthings/Utility Room Lights/switch"
+    state_topic: "smartthings/Utility Room Lights/switch"
+    name: "Utility Room Lights"
+    payload_on: "on"
+    payload_off: "off"
 
 light:
   - platform: mqtt
