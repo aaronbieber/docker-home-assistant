@@ -23,7 +23,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.living_room
-        temperature: 62
+        temperature: 68
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.rec_room_heat
@@ -108,9 +108,8 @@
 
 - alias: Wake Up
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "-00:30:00"
+    platform: time
+    at: "05:00:00"
   action:
     - service: scene.turn_on
       data:
@@ -118,8 +117,8 @@
 
 - alias: Up and Atom
   trigger:
-    platform: sun
-    event: sunrise
+    platform: time
+    at: "05:30:00"
   condition:
     condition: time
     weekday:
