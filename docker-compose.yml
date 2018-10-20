@@ -16,5 +16,3 @@ services:
       - ./hass:/config
       - /etc/localtime:/etc/localtime:ro
     restart: always
-    devices:
-      - "/dev/ttyACM0:/zwaveusb:rwm"
