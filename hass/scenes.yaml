@@ -60,6 +60,9 @@
     light.kitchen_ceiling_lights:
       state: on
       brightness: 3
+    light.kitchen_counter_lights:
+      state: on
+      brightness: 50
     light.living_room_ceiling_lights:
       state: on
       brightness: 40
@@ -78,6 +81,9 @@
     light.kitchen_ceiling_lights:
       state: on
       brightness: 75
+    light.kitchen_counter_lights:
+      state: on
+      brightness: 100
     light.living_room_ceiling_lights:
       state: on
       brightness: 50
@@ -96,9 +102,9 @@
     light.front_porch_light:
       state: on
       brightness: 255
-    light.bedroom_lamp:
+    light.bedroom_ceiling_lights:
       state: on
-      brightness: 15
+      brightness: 3
 
 - name: Perimeter On
   entities:

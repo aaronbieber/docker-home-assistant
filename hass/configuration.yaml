@@ -64,10 +64,6 @@ logbook:
 # Track the sun
 sun:
 
-# Z-Wave controller
-zwave:
-  usb_path: /zwaveusb
-
 binary_sensor:
   - platform: mqtt
     name: Utility Room Motion
@@ -117,8 +113,6 @@ device_tracker:
     host: 192.168.10.70
     username: !secret unifi_username
     password: !secret unifi_password
-    consider_home: 180
-    interval_seconds: 60
 
 # Cloud
 cloud:
@@ -213,13 +207,13 @@ light:
     state_topic: "smartthings/Back Porch Light/switch"
     name: "Back Porch Light"
   - platform: mqtt
-    brightness_state_topic: "smartthings/Bedroom Ceiling Lights/level"
-    brightness_command_topic: "smartthings/Bedroom Ceiling Lights/level"
+    brightness_state_topic: "smartthings/Master Bedroom Ceiling Lights/level"
+    brightness_command_topic: "smartthings/Master Bedroom Ceiling Lights/level"
     brightness_scale: 100
     payload_on: "on"
     payload_off: "off"
-    command_topic: "smartthings/Bedroom Ceiling Lights/switch"
-    state_topic: "smartthings/Bedroom Ceiling Lights/switch"
+    command_topic: "smartthings/Master Bedroom Ceiling Lights/switch"
+    state_topic: "smartthings/Master Bedroom Ceiling Lights/switch"
     name: "Bedroom Ceiling Lights"
   - platform: mqtt
     brightness_state_topic: "smartthings/Nathan's Light/level"
