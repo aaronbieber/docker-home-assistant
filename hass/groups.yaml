@@ -5,6 +5,7 @@ office_lights:
     - light.office_left
     - light.office_right
     - light.printer_station
+    - light.office_storage
 rec_room_lights:
   name: Rec Room
   entities:

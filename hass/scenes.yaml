@@ -14,7 +14,11 @@
     light.office_right:
       state: on
       brightness: 255
+      color_temp: 325
     light.printer_station:
+      state: on
+      brightness: 255
+    light.office_storage:
       state: on
       brightness: 255
 
@@ -57,6 +61,7 @@
     light.office_right:
       state: on
       brightness: 255
+      color_temp: 325
     light.kitchen_ceiling_lights:
       state: on
       brightness: 3
@@ -66,6 +71,9 @@
     light.living_room_ceiling_lights:
       state: on
       brightness: 40
+    light.bedroom_lamp:
+      state: on
+      brightness: 10
 
 - name: Morning
   entities:
@@ -97,6 +105,9 @@
       state: on
       brightness: 255
     light.printer_station:
+      state: on
+      brightness: 255
+    light.office_storage:
       state: on
       brightness: 255
     light.front_porch_light:
